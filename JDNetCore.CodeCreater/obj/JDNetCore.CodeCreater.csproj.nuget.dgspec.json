@@ -1,0 +1,204 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.CodeCreater\\JDNetCore.CodeCreater.csproj": {}
+  },
+  "projects": {
+    "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.CodeCreater\\JDNetCore.CodeCreater.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.CodeCreater\\JDNetCore.CodeCreater.csproj",
+        "projectName": "JDNetCore.CodeCreater",
+        "projectPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.CodeCreater\\JDNetCore.CodeCreater.csproj",
+        "packagesPath": "C:\\Users\\研小艾\\.nuget\\packages\\",
+        "outputPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.CodeCreater\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\研小艾\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\JDNetCore.Common.csproj": {
+                "projectPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\JDNetCore.Common.csproj"
+              },
+              "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Entity\\JDNetCore.Entity.csproj": {
+                "projectPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Entity\\JDNetCore.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100-preview3-014645\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\JDNetCore.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\JDNetCore.Common.csproj",
+        "projectName": "JDNetCore.Common",
+        "projectPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\JDNetCore.Common.csproj",
+        "packagesPath": "C:\\Users\\研小艾\\.nuget\\packages\\",
+        "outputPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\研小艾\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100-preview3-014645\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Entity\\JDNetCore.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Entity\\JDNetCore.Entity.csproj",
+        "projectName": "JDNetCore.Entity",
+        "projectPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Entity\\JDNetCore.Entity.csproj",
+        "packagesPath": "C:\\Users\\研小艾\\.nuget\\packages\\",
+        "outputPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\研小艾\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\JDNetCore.Common.csproj": {
+                "projectPath": "C:\\CodeSP\\JDNetCoreFrameWork\\JDNetCore.Common\\JDNetCore.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Snowflake.Core": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "sqlSugarCore": {
+              "target": "Package",
+              "version": "[5.0.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100-preview3-014645\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

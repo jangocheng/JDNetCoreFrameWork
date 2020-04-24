@@ -1,0 +1,11 @@
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\bin\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.deps.json
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\bin\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\obj\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.AssemblyInfoInputs.cache
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\obj\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.AssemblyInfo.cs
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\bin\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\obj\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.csprojAssemblyReference.cache
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\obj\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\obj\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\bin\Debug\netcoreapp3.1\JDNetCore.Common.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\bin\Debug\netcoreapp3.1\JDNetCore.Common.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.ApiSite.Extension\obj\Debug\netcoreapp3.1\JDNetCore.ApiSite.Extension.csproj.CopyComplete

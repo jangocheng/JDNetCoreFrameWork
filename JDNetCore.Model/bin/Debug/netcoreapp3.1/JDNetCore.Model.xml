@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JDNetCore.Model</name>
+    </assembly>
+    <members>
+        <member name="T:JDNetCore.Model.VO.In.BQM">
+            <summary>
+            BaseQueryModel
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.limit">
+            <summary>
+            取limit条
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.page">
+            <summary>
+            分页参数 第page页
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.per_page">
+            <summary>
+            分页参数 一页per_page条
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.sortby">
+            <summary>
+            排序参数 排序依据
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.order">
+            <summary>
+            排序参数 升序/降序(asc/desc)
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.state">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.states">
+            <summary>
+            多状态
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.types">
+            <summary>
+            多类型
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.search_word">
+            <summary>
+            查询字段
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.start_on">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.end_on">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.ids">
+            <summary>
+            多id
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.BQM.user_id">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="T:JDNetCore.Model.VO.Out.Token">
+            <summary>
+            jwt接口返回的 token
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Token.access_token">
+            <summary>
+            token
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Token.token_type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Token.expires_in">
+            <summary>
+            有效期
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Token.refresh_token">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Token.refresh_token_expires_in">
+            <summary>
+            刷新有效期
+            </summary>
+        </member>
+    </members>
+</doc>

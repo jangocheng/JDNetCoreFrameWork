@@ -1,0 +1,17 @@
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\appsettings.json
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.exe
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\staticwebassets\OcelotTest02.ApiSite.StaticWebAssets.Manifest.cache
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\staticwebassets\OcelotTest02.ApiSite.StaticWebAssets.xml
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.AssemblyInfoInputs.cache
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.AssemblyInfo.cs
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.RazorTargetAssemblyInfo.cache
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.deps.json
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.runtimeconfig.json
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.runtimeconfig.dev.json
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.dll
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.pdb
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.MvcApplicationPartsAssemblyInfo.cache
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.dll
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.pdb

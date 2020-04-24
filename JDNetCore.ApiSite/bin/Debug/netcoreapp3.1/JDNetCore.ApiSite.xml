@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JDNetCore.ApiSite</name>
+    </assembly>
+    <members>
+        <member name="T:JDNetCore.ApiSite.Admin.v1.AdminTestController">
+            <summary>
+            测试
+            </summary>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Interface.IRestfull`2">
+            <summary>
+            Restfull风格的接口定式
+            </summary>
+            <typeparam name="DTO">传输模型</typeparam>
+            <typeparam name="QueryModel">查询模型</typeparam>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Interface.IRestfullAsync`2">
+            <summary>
+            Restfull风格的接口定式(Task)
+            </summary>
+            <typeparam name="DTO">传输模型</typeparam>
+            <typeparam name="QueryModel">查询模型</typeparam>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Program.Main(System.String[])">
+            <summary>
+            Application_Start Part 1 Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Application_Start Part 2 CreateHostBuilder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

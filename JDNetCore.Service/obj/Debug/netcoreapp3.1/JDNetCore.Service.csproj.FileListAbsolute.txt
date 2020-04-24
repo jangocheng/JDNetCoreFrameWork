@@ -1,0 +1,8 @@
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\bin\Debug\netcoreapp3.1\JDNetCore.Service.deps.json
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\bin\Debug\netcoreapp3.1\JDNetCore.Service.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\bin\Debug\netcoreapp3.1\JDNetCore.Service.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\obj\Debug\netcoreapp3.1\JDNetCore.Service.csprojAssemblyReference.cache
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\obj\Debug\netcoreapp3.1\JDNetCore.Service.AssemblyInfoInputs.cache
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\obj\Debug\netcoreapp3.1\JDNetCore.Service.AssemblyInfo.cs
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\obj\Debug\netcoreapp3.1\JDNetCore.Service.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service\obj\Debug\netcoreapp3.1\JDNetCore.Service.pdb

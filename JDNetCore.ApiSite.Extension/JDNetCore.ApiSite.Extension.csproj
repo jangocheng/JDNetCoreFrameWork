@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>JDNetCore.ApiSite</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Aop\" />
+    <Folder Include="Extension\" />
+    <Folder Include="Filter\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="3.1.2" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Ocelot" Version="15.0.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JDNetCore.Common\JDNetCore.Common.csproj" />
+  </ItemGroup>
+
+</Project>

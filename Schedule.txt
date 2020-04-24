@@ -1,0 +1,24 @@
+2020/04/22 
+	编写项目纲领
+2020/04/23
+	实体层引入sqlsugar
+	加入雪花算法(Snowflake.Core)
+	定义数据库链接配置和数据库池
+	自动创建数据库
+	Appsetting 帮助类
+	启用 swagger 
+	swagger 文档加入 IApiDescriptionGroupCollectionProvider 继承实现 取消了Swagger 文档和HttpMethodAttribute 的强关联
+
+	引入 Ocelot负载均衡
+
+	swagger 启用oauth 
+		静态登陆接口编写,
+		Jwt启用
+		Authorize启用
+
+	Autoface 引入
+
+
+
+	
+	

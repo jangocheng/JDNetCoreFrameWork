@@ -1,0 +1,28 @@
+﻿{
+  "ReRoutes": [ //注意此处是数组形式, 支持垂直均衡
+    {
+      "DownstreamPathTemplate": "/api/{everything}", //下游的路由模板，即真实处理请求的路径模板
+      "DownstreamScheme": "https", //请求的方式，如：http,htttps
+      "DownstreamHostAndPorts": [ //下游的IP以及端口,可以有多个(如果使用负载均衡)，方便实现负载均衡，当然你也可以使用服务发现，实现下游服务的自动注册与发现
+        {
+          "Host": "localhost",
+          "Port": 10001
+        },
+        {
+          "Host": "localhost",
+          "Port": 10002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/{everything}", //上游请求的模板，即用户真实请求的链接
+      "UpstreamHttpMethod": [ "Get", "Post" ], //游请求的http方法，是个数组，你可以写多个。
+      "LoadBalancerOptions": { //负载均衡选项（DownstreamHostAndPorts有多个的时候才能看到效果） , LeastConnection
+        "Type": "RoundRobin" //轮流发送
+        //"Type": "LeastConnection" //将请求发往最空闲的那个服务器
+        //"Type": "NoLoadBalance" //不启用负载均衡，总是发往第一个请求或者服务发现的那个服务器
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    //"BaseUrl": "https://localhost:5001"
+  }
+}

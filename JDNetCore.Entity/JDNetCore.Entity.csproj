@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Snowflake.Core" Version="2.0.0" />
+    <PackageReference Include="sqlSugarCore" Version="5.0.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JDNetCore.Common\JDNetCore.Common.csproj" />
+  </ItemGroup>
+
+</Project>
