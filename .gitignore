@@ -1,1 +1,1 @@
-*.Ignore.sln *.Ignore.csproj *.user *.suo *.vspscc *.vs aspnet_client [Bb]in [Oo]bj packages [Ll]og TempFiles *.vshost.*  [Tt]humbs.db .DS_Store .idea UploadFiles node_modules .vscode
+*.Ignore.sln *.Ignore.csproj *.user *.suo *.vspscc *.vs aspnet_client [Bb]in [Oo]bj packages [Ll]og TempFiles *.vshost.*  [Tt]humbs.db .DS_Store .idea UploadFiles node_modules .vscode .vs
