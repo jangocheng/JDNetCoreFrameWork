@@ -12,6 +12,14 @@ C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\Ocelot
 C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.runtimeconfig.dev.json
 C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.dll
 C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.pdb
-C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.MvcApplicationPartsAssemblyInfo.cache
 C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.dll
 C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.pdb
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.csprojAssemblyReference.cache
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.MvcApplicationPartsAssemblyInfo.cache
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.csproj.CopyComplete
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\bin\Debug\netcoreapp3.1\OcelotTest02.ApiSite.xml
+C:\CodeSP\JDNetCoreFrameWork\OcelotTest02.ApiSite\obj\Debug\netcoreapp3.1\OcelotTest02.ApiSite.MvcApplicationPartsAssemblyInfo.cs

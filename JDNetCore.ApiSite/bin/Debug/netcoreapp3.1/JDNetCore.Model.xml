@@ -4,6 +4,41 @@
         <name>JDNetCore.Model</name>
     </assembly>
     <members>
+        <member name="T:JDNetCore.Model.DTO.Token">
+            <summary>
+            jwt接口返回的 token
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.DTO.Token.access_token">
+            <summary>
+            token
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.DTO.Token.token_type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.DTO.Token.expires_in">
+            <summary>
+            有效期
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.DTO.Token.refresh_token">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.DTO.Token.refresh_token_expires_in">
+            <summary>
+            刷新有效期
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.DTO.Token.scope">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:JDNetCore.Model.VO.In.BQM">
             <summary>
             BaseQueryModel
@@ -77,36 +112,6 @@
         <member name="P:JDNetCore.Model.VO.In.BQM.user_id">
             <summary>
             用户id
-            </summary>
-        </member>
-        <member name="T:JDNetCore.Model.VO.Out.Token">
-            <summary>
-            jwt接口返回的 token
-            </summary>
-        </member>
-        <member name="P:JDNetCore.Model.VO.Out.Token.access_token">
-            <summary>
-            token
-            </summary>
-        </member>
-        <member name="P:JDNetCore.Model.VO.Out.Token.token_type">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:JDNetCore.Model.VO.Out.Token.expires_in">
-            <summary>
-            有效期
-            </summary>
-        </member>
-        <member name="P:JDNetCore.Model.VO.Out.Token.refresh_token">
-            <summary>
-            刷新
-            </summary>
-        </member>
-        <member name="P:JDNetCore.Model.VO.Out.Token.refresh_token_expires_in">
-            <summary>
-            刷新有效期
             </summary>
         </member>
     </members>

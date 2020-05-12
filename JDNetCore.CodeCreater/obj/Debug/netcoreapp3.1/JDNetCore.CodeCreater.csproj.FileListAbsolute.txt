@@ -56,3 +56,9 @@ C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\JDNet
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\JDNetCore.Entity.pdb
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\obj\Debug\netcoreapp3.1\JDNetCore.CodeCreater.csproj.CopyComplete
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll

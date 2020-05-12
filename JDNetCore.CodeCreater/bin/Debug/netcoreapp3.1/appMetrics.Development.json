@@ -1,0 +1,11 @@
+﻿{
+  "AppMetrics": {
+    "IsOpen": true,
+    "DatabaseName": "MetricsDB",
+    "ConnectionString": "http://localhost:8086",
+    "UserName": "admin",
+    "Password": "123123",
+    "App": "MSAD",
+    "Env": "Development"
+  }
+}

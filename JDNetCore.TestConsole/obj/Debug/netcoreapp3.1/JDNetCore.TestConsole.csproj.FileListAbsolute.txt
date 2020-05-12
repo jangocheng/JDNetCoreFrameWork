@@ -45,6 +45,14 @@ C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\obj\Debug\netcoreapp3.1\JDNet
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\obj\Debug\netcoreapp3.1\JDNetCore.TestConsole.csproj.CopyComplete
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\obj\Debug\netcoreapp3.1\JDNetCore.TestConsole.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\obj\Debug\netcoreapp3.1\JDNetCore.TestConsole.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\JDNetCore.Common.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\JDNetCore.Common.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
@@ -53,6 +61,4 @@ C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Micro
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
-C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
-C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\JDNetCore.Common.dll
-C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\JDNetCore.Common.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll

@@ -86,9 +86,9 @@ namespace JDNetCore.CodeCreater
         /// <param name="context"></param>
         static bool IsInitialize(DBContext context)
         {
+            string connectionString = context.Db.CurrentConnectionConfig.ConnectionString;
             if (DBContext.DbType == DbType.MySql)
             {
-                string connectionString = context.Db.CurrentConnectionConfig.ConnectionString;
                 string thisConnectionString = connectionString.Replace(context.Db.Ado.Connection.Database, "mysql");
                 var newDb = new SqlSugarClient(new ConnectionConfig()
                 {
@@ -102,7 +102,19 @@ namespace JDNetCore.CodeCreater
             }
             else if (DBContext.DbType == DbType.SqlServer)
             {
-                string connectionString = context.Db.CurrentConnectionConfig.ConnectionString;
+                string thisConnectionString = connectionString.Replace(context.Db.Ado.Connection.Database, "master");
+                var newDb = new SqlSugarClient(new ConnectionConfig()
+                {
+                    DbType = DBContext.DbType,
+                    IsAutoCloseConnection = true,
+                    ConnectionString = thisConnectionString
+                });
+                var com = /*DBContext.Context.Db*/newDb.Ado.SqlQuerySingle<int?>($"select 1 from sys.databases where name = '{context.Db.Ado.Connection.Database}';");
+                if (com == null)
+                    return true;
+            }
+            else if (DBContext.DbType == DbType.Oracle)
+            {
                 string thisConnectionString = connectionString.Replace(context.Db.Ado.Connection.Database, "master");
                 var newDb = new SqlSugarClient(new ConnectionConfig()
                 {
@@ -128,7 +140,7 @@ namespace JDNetCore.CodeCreater
                 account = "admin",
                 headimage = "",
                 realname = "系统管理员",
-                password = MD5Helper.MD5Encrypt64("123123"),
+                password = MD5Helper.MD5Encrypt64("Ww123123"),
                 phone = "18888888888",
                 state = 1,
             };

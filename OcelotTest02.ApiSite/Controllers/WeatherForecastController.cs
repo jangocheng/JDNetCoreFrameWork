@@ -11,6 +11,7 @@ namespace OcelotTest02.ApiSite.Controllers
     [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        [HttpGet]
         public string Get()
         {
             return "from OcelotTest02.ApiSite";

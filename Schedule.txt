@@ -9,7 +9,12 @@
 	启用 swagger 
 	swagger 文档加入 IApiDescriptionGroupCollectionProvider 继承实现 取消了Swagger 文档和HttpMethodAttribute 的强关联
 
-	引入 Ocelot负载均衡
+	引入 Ocelot
+			负载均衡
+			限流
+			监控
+
+
 
 	swagger 启用oauth 
 		静态登陆接口编写,
@@ -17,6 +22,20 @@
 		Authorize启用
 
 	Autoface 引入
+
+2020/05/08
+	identityserver4 引入 使用password 获取token
+	sugar 引入
+
+2020/05/09
+	权限体系设计
+	0. 修改swagger 的文档, 让其支持反向标记 带匿名头就pass 不带就增加权限标记
+	1. 通过swagger 的api文档抓取 数据存入数据库 (作为一条条的permission数据)
+	2. 增加role
+	3. 增加permission和role 的配置关系
+	4. 增加user 和 permission 的配置关系
+	5. 通过全局注入Auth 的方式 修改底层获取当前用户的 权限信息
+
 
 
 

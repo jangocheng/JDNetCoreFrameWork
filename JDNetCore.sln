@@ -21,6 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDNetCore.Model", "JDNetCor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F71B5170-FBA4-4A39-B32C-0095DAF4FED7}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		ReadMe.txt = ReadMe.txt
 		Schedule.txt = Schedule.txt
 	EndProjectSection
@@ -31,7 +32,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDNetCore.ApiSite", "JDNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDNetCore.ApiSite.Extension", "JDNetCore.ApiSite.Extension\JDNetCore.ApiSite.Extension.csproj", "{43FBD6C2-1754-4AEF-BE9A-7FBEF862A9E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotTest01.ApiSite", "OcelotTest01.ApiSite\OcelotTest01.ApiSite.csproj", "{C63C5BA1-2F56-4E0B-AF39-7D20B8A4F958}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotTest01.ApiSite", "OcelotTest01.ApiSite\OcelotTest01.ApiSite.csproj", "{C63C5BA1-2F56-4E0B-AF39-7D20B8A4F958}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotTest02.ApiSite", "OcelotTest02.ApiSite\OcelotTest02.ApiSite.csproj", "{9E7313CE-6D4E-4092-B2CD-1E64A3D9C4DA}"
 EndProject

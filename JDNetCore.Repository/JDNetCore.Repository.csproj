@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JDNetCore.Entity\JDNetCore.Entity.csproj" />
+    <ProjectReference Include="..\JDNetCore.Repository.Interface\JDNetCore.Repository.Interface.csproj" />
+  </ItemGroup>
+
 </Project>

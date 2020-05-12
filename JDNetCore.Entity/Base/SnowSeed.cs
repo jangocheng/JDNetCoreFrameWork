@@ -1,4 +1,6 @@
-﻿using Snowflake.Core;
+﻿
+using JDNetCore.Common;
+using Snowflake.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;

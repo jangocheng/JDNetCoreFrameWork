@@ -93,11 +93,11 @@ namespace JDNetCore.Model.VO.In
         /// <summary>
         /// 多id
         /// </summary>
-        public virtual ICollection<long> ids { set; get; }
+        public virtual ICollection<string> ids { set; get; }
         /// <summary>
         /// 用户id
         /// </summary>
-        public virtual long user_id { set; get; }
+        public virtual string user_id { set; get; }
 
     }
 }

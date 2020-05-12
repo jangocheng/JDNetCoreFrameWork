@@ -4,12 +4,26 @@
         <name>JDNetCore.ApiSite</name>
     </assembly>
     <members>
+        <member name="M:JDNetCore.ApiSite.Admin.v1.AccountController.GetTestToken">
+            <summary>
+            获取测试Token admin / Ww123123
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.v1.AccountController.SignIn(System.String,System.String)">
+            <summary>
+            登陆
+            </summary>
+            <param name="id">用户米/电话/邮箱</param>
+            <param name="pwd">密码</param>
+            <returns></returns>
+        </member>
         <member name="T:JDNetCore.ApiSite.Admin.v1.AdminTestController">
             <summary>
             测试
             </summary>
         </member>
-        <member name="T:JDNetCore.ApiSite.Interface.IRestfull`2">
+        <member name="T:JDNetCore.ApiSite.Interface.IRestfull`1">
             <summary>
             Restfull风格的接口定式
             </summary>
@@ -35,6 +49,46 @@
             </summary>
             <param name="args"></param>
             <returns></returns>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Startup">
+            <summary>
+            起点
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:JDNetCore.ApiSite.Startup.Configuration">
+            <summary>
+            配置
+            </summary>
+        </member>
+        <member name="P:JDNetCore.ApiSite.Startup.Environment">
+            <summary>
+            环境
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
         </member>
     </members>
 </doc>

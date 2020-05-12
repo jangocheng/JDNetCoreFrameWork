@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace JDNetCore.Common
@@ -18,26 +19,43 @@ namespace JDNetCore.Common
 
         static bool loadedEvn;
 
-        public Appsettings()
+        static List<string> files { set; get; }
+
+        /// <summary>
+        /// 配置
+        /// </summary>
+        /// <param name="BeforeConfigurationBuild">配置builder之前的委托</param>
+        public Appsettings(Action<IConfigurationBuilder> BeforeConfigurationBuild = null)
         {
             evn = null;
-            string Path = "appsettings.json";
+            string path = "appsettings.json";
             fromEvn:
             if (!string.IsNullOrWhiteSpace(evn))
             {
-                Path = $"appsettings.{evn}.json";
+                path = $"appsettings.{evn}.json";
             }
             //如果你把配置文件 是 根据环境变量来分开了，可以这样写
             //Path = $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json";
+            var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())//AppContext.BaseDirectory
+               .AddJsonFile(path: path, optional: true, reloadOnChange: true);
+            if (files != null)
+            {
+                foreach (var item in files)
+                {
+                    builder.AddJsonFile(item + "." + evn + ".json");
+                }
+            }
+            if(loadedEvn)
+                BeforeConfigurationBuild?.Invoke(builder);
+            Configuration = builder.Build();//这样的话，可以直接读目录里的json文件，而不是 bin 文件夹下的，所以不用修改复制属性
 
-            Configuration = new ConfigurationBuilder()
-               .SetBasePath(AppContext.BaseDirectory)
-               .Add(new JsonConfigurationSource { Path = Path, Optional = false, ReloadOnChange = true })//这样的话，可以直接读目录里的json文件，而不是 bin 文件夹下的，所以不用修改复制属性
-               .Build();
+
 
             if (!loadedEvn)
             {
                 if (app<string>("Environment") == null) return;
+                files = app<List<string>>("PluginsJson");
                 goto fromEvn;
             }
             //测试

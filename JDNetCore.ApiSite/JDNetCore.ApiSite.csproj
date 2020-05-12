@@ -12,24 +12,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dockerfile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="App.Metrics" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Endpoints" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Reporting" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.Extensions.Hosting" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.Reporting.InfluxDB" Version="3.2.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="IdentityServer4" Version="3.1.2" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
-    <PackageReference Include="Ocelot" Version="15.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+    <PackageReference Include="Snowflake.Core" Version="2.0.0" />
+    <PackageReference Include="sqlSugarCore" Version="5.0.0.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\JDNetCore.ApiSite.Extension\JDNetCore.ApiSite.Extension.csproj" />
-    <ProjectReference Include="..\JDNetCore.Model\JDNetCore.Model.csproj" />
+    <ProjectReference Include="..\JDNetCore.Common\JDNetCore.Common.csproj" />
+    <ProjectReference Include="..\JDNetCore.Repository.Interface\JDNetCore.Repository.Interface.csproj" />
+    <ProjectReference Include="..\JDNetCore.Repository\JDNetCore.Repository.csproj" />
+    <ProjectReference Include="..\JDNetCore.Service.Interface\JDNetCore.Service.Interface.csproj" />
+    <ProjectReference Include="..\JDNetCore.Service\JDNetCore.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Ocelot.Development.json">
+    <Content Update="ocelot.Development.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appmetrics_1development_1json__JsonSchema="http://json.schemastore.org/ansible-stable-2.9" /></VisualStudio></ProjectExtensions>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy $(ProjectDir)*.json $(ProjectDir)..\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1" />
+  </Target>
 
 
 </Project>

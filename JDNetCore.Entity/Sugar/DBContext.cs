@@ -9,7 +9,7 @@ using System.Text;
 
 namespace JDNetCore.Entity.Sugar
 {
-    public class DBContext
+    public partial class DBContext
     {
         private static MutiDBOperate connectObject => GetMainConnectionDb();
         private static string _connectionString = connectObject.Connection;

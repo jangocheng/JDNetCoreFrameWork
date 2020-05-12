@@ -51,3 +51,7 @@ JDNetCore.Service
 	服务层(BLL) 同上
 JDNetCore.Service.Interface
 	服务接口
+
+外部开关
+.\influxd -config influxdb.conf
+consul agent -dev

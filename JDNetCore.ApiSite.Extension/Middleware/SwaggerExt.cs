@@ -71,11 +71,11 @@ namespace JDNetCore.ApiSite.Middleware
 
                 // 开启加权小锁
                 c.OperationFilter<AddResponseHeadersFilter>();
-                c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+                // 角色相关
+                //c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
 
                 // 在header中添加token，传递到后台
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
-
 
                 // 必须是 oauth2
                 c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -83,7 +83,7 @@ namespace JDNetCore.ApiSite.Middleware
                     Description = "JWT授权(数据将在请求头中进行传输) 直接在下框中输入Bearer {token}（注意两者之间是一个空格）\"",
                     Name = "Authorization",//jwt默认的参数名称
                     In = ParameterLocation.Header,//jwt默认存放Authorization信息的位置(请求头中)
-                    Type = SecuritySchemeType.ApiKey
+                    Type = SecuritySchemeType.ApiKey,
                 });
             });
         }
@@ -136,7 +136,7 @@ namespace JDNetCore.ApiSite.Middleware
         private ApiDescriptionGroupCollection GetCollection(ActionDescriptorCollection actionDescriptors)
         {
             var context = new ApiDescriptionProviderContext(actionDescriptors.Items);
-
+            
             foreach (var provider in _apiDescriptionProviders)
             {
                 provider.OnProvidersExecuting(context);
@@ -159,9 +159,9 @@ namespace JDNetCore.ApiSite.Middleware
                     apiDesc.HttpMethod = "PUT";
                 else if (actionName.StartsWith("patch"))
                     apiDesc.HttpMethod = "PATCH";
-
             });
 
+            
 
             var groups = context.Results
                 .GroupBy(d => d.GroupName)
@@ -171,4 +171,8 @@ namespace JDNetCore.ApiSite.Middleware
             return new ApiDescriptionGroupCollection(groups, actionDescriptors.Version);
         }
     }
+
+
+
+
 }

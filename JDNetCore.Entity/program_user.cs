@@ -1,4 +1,5 @@
 ﻿using JDNetCore.Entity.Base;
+using JDNetCore.Entity.Sugar;
 using SqlSugar;
 using System;
 using System.Collections.Generic;

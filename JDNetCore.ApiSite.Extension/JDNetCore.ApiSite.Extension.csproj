@@ -6,21 +6,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Aop\" />
     <Folder Include="Extension\" />
-    <Folder Include="Filter\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="App.Metrics" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Endpoints" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Reporting" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.Extensions.Hosting" Version="3.2.0" />
+    <PackageReference Include="App.Metrics.Reporting.InfluxDB" Version="3.2.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="5.0.0" />
+    <PackageReference Include="Castle.Core.AsyncInterceptor" Version="1.7.0" />
     <PackageReference Include="IdentityServer4" Version="3.1.2" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Ocelot" Version="15.0.6" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="5.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\JDNetCore.Common\JDNetCore.Common.csproj" />
+    <ProjectReference Include="..\JDNetCore.Service.Interface\JDNetCore.Service.Interface.csproj" />
   </ItemGroup>
 
 </Project>
