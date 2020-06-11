@@ -15,6 +15,7 @@ using JDNetCore.Common;
 using JDNetCore.Common.Interface;
 using JDNetCore.Model.DTO;
 using JDNetCore.Service.Interface;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using RestSharp;
 using System;
@@ -39,6 +40,7 @@ namespace JDNetCore.ApiSite.Middleware
                 .AddInMemoryApiResources(IdentityConfig.GetApiResource())
                 .AddInMemoryIdentityResources(IdentityConfig.GetIdentityResource())
                 .AddInMemoryClients(IdentityConfig.GetClients())
+                //.AddCookieAuthentication()//为了hangfire 可以登陆
                 //.AddTestUsers(IdentityConfig.GetUsers())
                 .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
             services.AddAuthentication("Bearer")
@@ -48,6 +50,13 @@ namespace JDNetCore.ApiSite.Middleware
                     options.RequireHttpsMetadata = options.Authority.Contains("https");
                     options.Audience = Appsettings.app<string>("Identity:Audience");
                 });
+                //.AddIdentityServerAuthentication(options =>
+                //{
+                //    options.Authority = Appsettings.app<string>("Identity:Authority");
+                //    options.RequireHttpsMetadata = options.Authority.Contains("https");
+                //    options.ApiName = "job_api";
+                //});
+
         }
 
         public static string TokenPath
@@ -93,7 +102,7 @@ namespace JDNetCore.ApiSite.Middleware
 
             //从缓存获取用户
             AccountResult accountResult = new AccountResult();
-            var ssouser = cache.Get<SSOUser>(context.UserName);
+            var ssouser = cache.Get<SSOUser>(context.UserName + "|" + context.Password);
             if (ssouser != null)
             {
                 context.Result = GetUserClaims(ssouser);
@@ -104,7 +113,7 @@ namespace JDNetCore.ApiSite.Middleware
             if (accountResult.state == Model.DTO.SSOState.success)
             {
                 context.Result = GetUserClaims(accountResult.user);
-                cache.Set(context.UserName, accountResult.user);
+                cache.Set(context.UserName + "|" + context.Password, accountResult.user);
             }
             else
             {
@@ -155,7 +164,8 @@ namespace JDNetCore.ApiSite.Middleware
         {
             return new List<ApiResource>
             {
-                new ApiResource("base_api", "My API")
+                new ApiResource("base_api", "defaultapi"),
+                new ApiResource("job_api", "jobapi")
             };
         }
         public static IEnumerable<Client> GetClients()
@@ -177,6 +187,17 @@ namespace JDNetCore.ApiSite.Middleware
                         IdentityServerConstants.StandardScopes.OpenId, //必须要添加，否则报forbidden错误
                         IdentityServerConstants.StandardScopes.Profile 
                     }
+                },
+                new Client
+                {
+                    ClientId = "hangfire",//client_id hangfire
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,// grant_type client_credentials
+                    ClientSecrets =
+                    {
+                        new Secret("hangfire".Sha256()) // client_secret hangfire
+                    },
+                    AllowedScopes = { "job_api" },
+                    //AccessTokenType = AccessTokenType.Reference,
                 }
             };
         }

@@ -6,12 +6,17 @@
 // 创建时间:           2020/5/8 19:41:23
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace JDNetCore.Entity.Sugar
 {
-    public partial interface IPagedList<T> : IEnumerable<T>
+    public partial interface IPagedList<T> :IEnumerable<T>, IPagedList
+    {
+    }
+
+    public partial interface IPagedList : IEnumerable
     {
         int pageSize { get; }
 
@@ -28,7 +33,11 @@ namespace JDNetCore.Entity.Sugar
         /// 是否有上一页
         /// </summary>
         bool hasPrev { get; }
-
+        /// <summary>
+        /// 总页数
+        /// </summary>
         int totalPage { get; }
+
+        IEnumerable data { get; }
     }
 }

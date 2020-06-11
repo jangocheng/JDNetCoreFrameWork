@@ -4,6 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Entity\JDNetCore.Entity.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Entity\JDNetCore.Entity.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
@@ -16,5 +24,9 @@
   <ItemGroup>
     <ProjectReference Include="..\JDNetCore.Common\JDNetCore.Common.csproj" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy $(ProjectDir)JDNetCore.Entity.xml $(ProjectDir)..\JDNetCore.ApiSite\JDNetCore.Entity.xml&#xD;&#xA;&#xD;&#xA;" />
+  </Target>
 
 </Project>

@@ -4,13 +4,24 @@
         <name>JDNetCore.ApiSite</name>
     </assembly>
     <members>
-        <member name="M:JDNetCore.ApiSite.Admin.v1.AccountController.GetTestToken">
+        <member name="T:JDNetCore.ApiSite.Admin.AccountController">
+            <summary>
+            账户和Token相关
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.AccountController.GetTestToken">
             <summary>
             获取测试Token admin / Ww123123
             </summary>
             <returns></returns>
         </member>
-        <member name="M:JDNetCore.ApiSite.Admin.v1.AccountController.SignIn(System.String,System.String)">
+        <member name="M:JDNetCore.ApiSite.Admin.AccountController.GetClaims">
+            <summary>
+            获取用户Claims
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.AccountController.SignIn(System.String,System.String)">
             <summary>
             登陆
             </summary>
@@ -18,24 +29,304 @@
             <param name="pwd">密码</param>
             <returns></returns>
         </member>
-        <member name="T:JDNetCore.ApiSite.Admin.v1.AdminTestController">
+        <member name="T:JDNetCore.ApiSite.Admin.DbEquipmentController">
             <summary>
-            测试
+            台套信息  
             </summary>
         </member>
-        <member name="T:JDNetCore.ApiSite.Interface.IRestfull`1">
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.#ctor(JDNetCore.Repository.Interface.IDbEquipmentRepository)">
+            <summary>
+            构造...
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.Delete(System.String)">
+            <summary>
+            按主键删除
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.DeleteAll(System.String[])">
+            <summary>
+            按主键删除多个
+            </summary>
+            <param name="ids">主键数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.Get(System.String)">
+            <summary>
+            按主键获取单条
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.Gets(JDNetCore.Model.VO.In.CQM_Equipment)">
+            <summary>
+            按条件获取多条(查询条件未实现)
+            </summary>
+            <param name="query">车间编号:_WORKSHOPNO </param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.Patch(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{JDNetCore.Entity.DB_Equipment})">
+            <summary>
+            部分更新(暂未实现)
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">JsonPatch对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.Post(JDNetCore.Entity.DB_Equipment)">
+            <summary>
+            添加
+            </summary>
+            <param name="data">添加对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.Put(System.String,JDNetCore.Entity.DB_Equipment)">
+            <summary>
+            全量更新
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">更新对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbEquipmentController.SyncData">
+            <summary>
+            由定时任务调起的数据同步任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Admin.DbImpmissingController">
+            <summary>
+            关键缺项  
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.#ctor(JDNetCore.Repository.Interface.IDbImpmissingRepository)">
+            <summary>
+            构造...
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.Delete(System.String)">
+            <summary>
+            按主键删除
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.DeleteAll(System.String[])">
+            <summary>
+            按主键删除多个
+            </summary>
+            <param name="ids">主键数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.Get(System.String)">
+            <summary>
+            按主键获取单条
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.Gets(JDNetCore.Model.VO.In.CQM_ImpMission)">
+            <summary>
+            按条件获取多条(查询条件未实现)
+            </summary>
+            <param name="query">台套号:_SETSNO</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.Patch(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{JDNetCore.Entity.DB_ImpMissing})">
+            <summary>
+            部分更新(暂未实现)
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">JsonPatch对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.Post(JDNetCore.Entity.DB_ImpMissing)">
+            <summary>
+            添加
+            </summary>
+            <param name="data">添加对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.Put(System.String,JDNetCore.Entity.DB_ImpMissing)">
+            <summary>
+            全量更新
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">更新对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbImpmissingController.SyncData">
+            <summary>
+            由定时任务调起的数据同步任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Admin.DbSporderController">
+            <summary>
+            急件订单  
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.#ctor(JDNetCore.Repository.Interface.IDbSporderRepository)">
+            <summary>
+            构造...
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.Delete(System.String)">
+            <summary>
+            按主键删除
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.DeleteAll(System.String[])">
+            <summary>
+            按主键删除多个
+            </summary>
+            <param name="ids">主键数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.Get(System.String)">
+            <summary>
+            按主键获取单条
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.Gets(JDNetCore.Model.VO.In.BQM)">
+            <summary>
+            按条件获取多条
+            </summary>
+            <param name="query">通用查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.Patch(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{JDNetCore.Entity.DB_SPOrder})">
+            <summary>
+            部分更新(暂未实现)
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">JsonPatch对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.Post(JDNetCore.Entity.DB_SPOrder)">
+            <summary>
+            添加
+            </summary>
+            <param name="data">添加对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.Put(System.String,JDNetCore.Entity.DB_SPOrder)">
+            <summary>
+            全量更新
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">更新对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.GetsByMonth(JDNetCore.Model.VO.In.CQM_SporderGetByMonth)">
+            <summary>
+            按分厂编号和月份获取 急件数量(未实现)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbSporderController.SyncData">
+            <summary>
+            由定时任务调起的数据同步任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Admin.DbTaskController">
+            <summary>
+            台套工作量、任务节点  
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.#ctor(JDNetCore.Repository.Interface.IDbTaskRepository)">
+            <summary>
+            构造...
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.Delete(System.String)">
+            <summary>
+            按主键删除
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.DeleteAll(System.String[])">
+            <summary>
+            按主键删除多个
+            </summary>
+            <param name="ids">主键数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.Get(System.String)">
+            <summary>
+            按主键获取单条
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.Gets(JDNetCore.Model.VO.In.CQM_Task)">
+            <summary>
+            按条件获取多条(查询条件未实现)
+            </summary>
+            <param name="query">台套号:_SETSNO</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.Patch(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{JDNetCore.Entity.DB_Task})">
+            <summary>
+            部分更新(暂未实现)
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">JsonPatch对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.Post(JDNetCore.Entity.DB_Task)">
+            <summary>
+            添加
+            </summary>
+            <param name="data">添加对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.Put(System.String,JDNetCore.Entity.DB_Task)">
+            <summary>
+            全量更新
+            </summary>
+            <param name="id">主键</param>
+            <param name="data">更新对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Admin.DbTaskController.SyncData">
+            <summary>
+            由定时任务调起的数据同步任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Controllers.CodeRepositoryAndServiceController">
+            <summary>
+            结构产生器
+            </summary>
+        </member>
+        <member name="M:JDNetCore.ApiSite.Controllers.CodeRepositoryAndServiceController.GetController(JDNetCore.Model.VO.In.ControllerIniter)">
+            <summary>
+            创建控制器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JDNetCore.ApiSite.Interface.IRestfull`2">
             <summary>
             Restfull风格的接口定式
             </summary>
             <typeparam name="DTO">传输模型</typeparam>
-            <typeparam name="QueryModel">查询模型</typeparam>
+            <typeparam name="CQM">查询模型</typeparam>
         </member>
         <member name="T:JDNetCore.ApiSite.Interface.IRestfullAsync`2">
             <summary>
             Restfull风格的接口定式(Task)
             </summary>
             <typeparam name="DTO">传输模型</typeparam>
-            <typeparam name="QueryModel">查询模型</typeparam>
+            <typeparam name="CQM">查询模型</typeparam>
         </member>
         <member name="M:JDNetCore.ApiSite.Program.Main(System.String[])">
             <summary>
@@ -60,22 +351,14 @@
             
             </summary>
             <param name="configuration"></param>
-        </member>
-        <member name="P:JDNetCore.ApiSite.Startup.Configuration">
-            <summary>
-            配置
-            </summary>
-        </member>
-        <member name="P:JDNetCore.ApiSite.Startup.Environment">
-            <summary>
-            环境
-            </summary>
+            <param name="env"></param>
         </member>
         <member name="M:JDNetCore.ApiSite.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             This method gets called by the runtime. Use this method to add services to the container.
             </summary>
             <param name="services"></param>
+            <param name="hangfire"></param>
         </member>
         <member name="M:JDNetCore.ApiSite.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
             <summary>
@@ -83,12 +366,13 @@
             </summary>
             <param name="builder"></param>
         </member>
-        <member name="M:JDNetCore.ApiSite.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:JDNetCore.ApiSite.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,System.IServiceProvider)">
             <summary>
             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             </summary>
             <param name="app"></param>
             <param name="env"></param>
+            <param name="provider"></param>
         </member>
     </members>
 </doc>

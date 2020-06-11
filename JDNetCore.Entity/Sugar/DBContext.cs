@@ -62,6 +62,8 @@ namespace JDNetCore.Entity.Sugar
             private set { _db = value; }
         }
 
+
+
         /// <summary>
         /// 数据库上下文实例（自动关闭连接）
         /// </summary>
@@ -121,7 +123,15 @@ namespace JDNetCore.Entity.Sugar
             _db.MappingTables.Clear();
             _db.MappingTables.Add(fileName, tableName);
             IDbFirst.IsCreateDefaultValue().IsCreateAttribute()
-                .SettingClassTemplate(p => p = $@"using Jd.Common.NetCore.Model.Models;
+                .SettingClassTemplate(p => p = 
+$@"
+using SqlSugar;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using JDNetCore.Entity;
+using JDNetCore.Entity.Sugar;
 
 namespace " + strNameSpace + @"
 {
@@ -134,7 +144,55 @@ namespace " + strNameSpace + @"
 }
 ")
                  .CreateClassFile(strPath, strNameSpace);
-            return "";
+            return "创建成功";
+        }
+        #endregion
+
+
+
+        #region 根据数据库表生产 Repository 层
+        /// <summary>
+        /// 功能描述:根据数据库表生产 Repository 层
+        /// </summary>
+        /// <param name="strPath">实体类存放路径</param>
+        /// <param name="strNameSpace">命名空间</param>
+        /// <param name="tableName">生产指定的表</param>
+        /// <param name="logicName">逻辑名</param>
+        /// <param name="remark">逻辑备注</param>
+        public string Create_Repository_ClassFileByDBTalbe(string strPath, string strNameSpace, string tableName, string logicName, string remark)
+        {
+            string fileName = logicName + "Repository";
+            if (File.Exists(strPath + "\\" + fileName + ".cs"))
+            {
+                return $"Repository层文件 {fileName} 已存在;  ";
+            }
+            var IDbFirst = _db.DbFirst.Where(tableName);
+            _db.MappingTables.Clear();
+            _db.MappingTables.Add(fileName, tableName);
+            IDbFirst.IsCreateDefaultValue().IsCreateAttribute()
+                .SettingClassTemplate(p => p =
+@"
+using JDNetCore.Entity;
+using JDNetCore.Entity.Sugar;
+using JDNetCore.Repository.Interface;
+using System;
+using System.Collections.Generic;
+
+namespace " + strNameSpace + @"
+{
+	/// <summary>
+	/// " + remark + @" 
+	/// </summary>
+    public partial class " + logicName + "Repository : BaseRepository<" + tableName + ">, I" + logicName + "Repository" + @"
+    {
+        public " + logicName + @"Repository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+        }
+    }
+}
+")
+                 .CreateClassFile(strPath, strNameSpace);
+            return "创建成功";
         }
         #endregion
 
@@ -172,48 +230,6 @@ namespace " + strNameSpace + @"
 	/// </summary>	
     public interface I" + logicName + @"Services :IBaseServices<" + tableName + ">" + @"
 	{
-    }
-}
-")
-                 .CreateClassFile(strPath, strNameSpace);
-            return "";
-        }
-        #endregion
-
-        #region 根据数据库表生产 Repository 层
-        /// <summary>
-        /// 功能描述:根据数据库表生产 Repository 层
-        /// </summary>
-        /// <param name="strPath">实体类存放路径</param>
-        /// <param name="strNameSpace">命名空间</param>
-        /// <param name="tableName">生产指定的表</param>
-        /// <param name="logicName">逻辑名</param>
-        /// <param name="remark">逻辑备注</param>
-        public string Create_Repository_ClassFileByDBTalbe(string strPath, string strNameSpace, string tableName, string logicName, string remark)
-        {
-            string fileName = logicName + "Repository";
-            if (File.Exists(strPath + "\\" + fileName + ".cs"))
-            {
-                return $"Repository层文件 {fileName} 已存在;  ";
-            }
-            var IDbFirst = _db.DbFirst.Where(tableName);
-            _db.MappingTables.Clear();
-            _db.MappingTables.Add(fileName, tableName);
-            IDbFirst.IsCreateDefaultValue().IsCreateAttribute()
-                .SettingClassTemplate(p => p = @"using Jd.Common.NetCore.IRepository;
-using Jd.Common.NetCore.IRepository.UnitOfWork;
-using Jd.Common.NetCore.Model.Models;
-
-namespace " + strNameSpace + @"
-{
-	/// <summary>
-	/// " + remark + @" 
-	/// </summary>
-    public class " + logicName + "Repository : BaseRepository<" + tableName + ">, I" + logicName + "Repository" + @"
-    {
-        public " + logicName + @"Repository(IUnitOfWork unitOfWork) : base(unitOfWork)
-        {
-        }
     }
 }
 ")
@@ -375,7 +391,9 @@ namespace " + strNameSpace + @"
             _db.MappingTables.Clear();
             _db.MappingTables.Add(fileName, tableName);
             IDbFirst.IsCreateDefaultValue().IsCreateAttribute()
-                .SettingClassTemplate(p => p = @"using System;
+                .SettingClassTemplate(p => p = 
+@"
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -419,6 +437,304 @@ namespace Jd.Common.NetCore.Api.Controllers
         {
             throw new System.NotImplementedException();
         }
+    }
+}
+                    ")
+                 .CreateClassFile(strPath, strNameSpace);
+            return "";
+        }
+        #endregion
+
+        #region 根据数据库表生成Controll
+        /// <summary>
+        /// 根据数据库表生成Controll
+        /// </summary>
+        /// <param name="strPath"></param>
+        /// <param name="strNameSpace"></param>
+        /// <param name="tableName"></param>
+        /// <param name="logicName"></param>
+        /// <param name="remark">逻辑备注</param>
+        public string Create_Controller_ClassFileFromRepositoryByDBTalbe(string strPath, string strNameSpace, string tableName, string logicName, string remark, string area,bool? restfulAsync)
+        {
+            area = area == null ? null : Rename.UnderLineToPascal(area);
+            string fileName = logicName + "Controller";
+            if (string.IsNullOrWhiteSpace(area))
+            {
+                strPath += "\\Controllers";
+            }
+            else
+            {
+                strPath += "\\" + Rename.UnderLineToPascal(area);
+            }
+            if (File.Exists(strPath + "\\" + fileName + ".cs"))
+            {
+                return $"Controller层文件 {fileName} 已存在;  ";
+            }
+            var IDbFirst = _db.DbFirst.Where(tableName);
+            _db.MappingTables.Clear();
+            _db.MappingTables.Add(fileName, tableName);
+            IDbFirst.IsCreateDefaultValue().IsCreateAttribute()
+                .SettingClassTemplate(p => p =
+@"
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using JDNetCore.ApiSite.Interface;
+using JDNetCore.Entity;
+using JDNetCore.Model.DTO;
+using JDNetCore.Model.VO;
+using JDNetCore.Model.VO.In;
+using JDNetCore.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+
+namespace JDNetCore.ApiSite"+(string.IsNullOrWhiteSpace(area)? ".Controllers" : ("."+area))+
+@"
+{
+    /// <summary>
+    /// " + remark + @"  
+    /// </summary>
+    " + (string.IsNullOrWhiteSpace(area) ? ($"[Route(\"api/" + logicName + "/[action]\")]"): "")+ @"
+    " + (string.IsNullOrWhiteSpace(area) ? ($"[ApiController]") : "") + @"
+    public partial class " + logicName + @"Controller : "+(string.IsNullOrWhiteSpace(area)? "ControllerBase":("Area"+area+"Controller"))+(restfulAsync==null?"":(", "+(restfulAsync==true? $"IRestfullAsync<{tableName},BQM>" : $"IRestfull<{tableName},BQM>"))) +@"
+    {
+        private readonly I" + logicName + @"Repository _resp;       
+        /// <summary>
+        /// 构造...
+        /// </summary>
+        public " + logicName + "Controller(I" + logicName + @"Repository " + logicName.ToLowerInvariant() + @"Repository)
+        {
+            " + "this._resp = " + logicName.ToLowerInvariant() + @"Repository;    
+        }"
+        
+        +(restfulAsync==null?"":(restfulAsync==true?(@"
+        /// <summary>
+        /// 按主键删除
+        /// </summary>" +
+        @"
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        /// <returns></returns>
+        public async Task<string> DeleteAsync([FromQuery] string id)
+        {
+            await _resp.DeleteAsync(id);
+            return null;
+        }
+
+        /// <summary>
+        /// 按主键删除多个
+        /// </summary>" +
+        @"
+        " +
+        $"/// <param name=\"ids\">主键数组</param>" +
+        @"
+        /// <returns></returns>
+        public async Task<string> DeleteAllAsync([FromQuery] string[] ids)
+        {
+            await _resp.DeleteInAsync(ids);
+            return null;
+        }
+
+        /// <summary>
+        /// 按主键获取单条
+        /// </summary>" +
+        @"
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        /// <returns></returns>
+        public async Task<" + tableName + @"> GetAsync([FromQuery] string id)
+        {
+            var result = await _resp.FindAsync(id);
+            return result;
+        }
+
+        /// <summary>
+        /// 按条件获取多条
+        /// </summary>" +
+        @"
+        " +
+        $"/// <param name=\"query\">通用查询条件</param>" +
+        @"
+        /// <returns></returns>
+        public async Task<IEnumerable<" + tableName + @">> GetsAsync([FromQuery] BQM query)
+        {
+            IEnumerable<" + tableName + @"> result = null;
+            if (query.page != null && query.per_page != null)
+            {
+                result = await _resp.PagedAsync(query.page.Value, query.per_page.Value);
+            }
+            else if (query.limit != null)
+            {
+                result = await _resp.QueryAsync(query.limit.Value);
+            }
+            else
+            {
+                result = await _resp.QueryAsync();
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 部分更新(暂未实现)
+        /// </summary>" +
+        @"
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        " +
+        $"/// <param name=\"data\">JsonPatch对象</param>" +
+        @"
+        /// <returns></returns>
+        public Task<string> PatchAsync([FromQuery] string id, [FromBody] JsonPatchDocument<" + tableName + @"> data)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 添加
+        /// </summary>" +
+        @"
+        " +
+        $"/// <param name=\"data\">添加对象</param>" +
+        @"
+        /// <returns></returns>
+        public async Task<string> PostAsync([FromBody] " + tableName + @" data)
+        {
+            await _resp.AddAsync(data);
+            return data.id;
+        }
+
+        /// <summary>
+        /// 全量更新
+        /// </summary>" +
+        @"
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        " +
+        $"/// <param name=\"data\">更新对象</param>" +
+        @"
+        /// <returns></returns>
+        public async Task<string> PutAsync([FromQuery] string id, [FromBody] " + tableName + @" data)
+        {
+            data.id = id;
+            await _resp.UpdateAsync(data);
+            return data.id;
+        }") :(@"
+        /// <summary>
+        /// 按主键删除
+        /// </summary>
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        /// <returns></returns>
+        public string Delete([FromQuery] string id)
+        {
+            _resp.Delete(id);
+            return null;
+        }
+
+        /// <summary>
+        /// 按主键删除多个
+        /// </summary>
+        " +
+        $"/// <param name=\"ids\">主键数组</param>" +
+        @"
+        /// <returns></returns>
+        public string DeleteAll([FromQuery] string[] ids)
+        {
+            _resp.DeleteIn(ids);
+            return null;
+        }
+
+        /// <summary>
+        /// 按主键获取单条
+        /// </summary>
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        /// <returns></returns>
+        public " + tableName + @" Get([FromQuery] string id)
+        {
+            var result = _resp.Find(id);
+            return result;
+        }
+
+        /// <summary>
+        /// 按条件获取多条
+        /// </summary>
+        " +
+        $"/// <param name=\"query\">通用查询条件</param>" +
+        @"
+        /// <returns></returns>
+        public IEnumerable<" + tableName + @"> Gets([FromQuery] BQM query)
+        {
+            IEnumerable<" + tableName + @"> result = null;
+            if (query.page != null && query.per_page != null)
+            {
+                result = _resp.Paged(query.page.Value, query.per_page.Value);
+            }
+            else if (query.limit != null)
+            {
+                result = _resp.Query(query.limit.Value);
+            }
+            else
+            {
+                result = _resp.Query();
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 部分更新(暂未实现)
+        /// </summary>
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        "+
+        $"/// <param name=\"data\">JsonPatch对象</param>" +
+        @"
+        /// <returns></returns>
+        public string Patch([FromQuery] string id, [FromBody] JsonPatchDocument<" + tableName + @"> data)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 添加
+        /// </summary>
+        " +
+        $"/// <param name=\"data\">添加对象</param>" +
+        @"
+        /// <returns></returns>
+        public string Post([FromBody] " + tableName + @" data)
+        {
+            _resp.Add(data);
+            return data.id;
+        }
+
+        /// <summary>
+        /// 全量更新
+        /// </summary>
+        " +
+        $"/// <param name=\"id\">主键</param>" +
+        @"
+        "+
+        $"/// <param name=\"data\">更新对象</param>" +
+        @"
+        /// <returns></returns>
+        public string Put([FromQuery] string id, [FromBody] " + tableName + @" data)
+        {
+            data.id = id;
+            _resp.Update(data);
+            return data.id;
+        }")))+
+    @"
     }
 }
                     ")

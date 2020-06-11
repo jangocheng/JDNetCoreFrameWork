@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JDNetCore.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:JDNetCore.Entity.Sugar.DataBaseType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetMainConnectionDb">
+            <summary>
+            连接字符串 
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.DBContext.ConnectionString">
+            <summary>
+            连接字符串 
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.DBContext.DbType">
+            <summary>
+            数据库类型 
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.DBContext.Db">
+            <summary>
+            数据连接对象 
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.DBContext.Context">
+            <summary>
+            数据库上下文实例（自动关闭连接）
+            </summary>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.#ctor">
+            <summary>
+            功能描述:构造函数
+            </summary>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_IRepository_ClassFileByDBTalbe(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            功能描述:根据数据库表生产IRepository层
+            </summary>
+            <param name="strPath">实体类存放路径</param>
+            <param name="strNameSpace">命名空间</param>
+            <param name="tableName">生产指定的表</param>
+            <param name="logicName">逻辑名</param>
+            <param name="remark">逻辑备注</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_Repository_ClassFileByDBTalbe(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            功能描述:根据数据库表生产 Repository 层
+            </summary>
+            <param name="strPath">实体类存放路径</param>
+            <param name="strNameSpace">命名空间</param>
+            <param name="tableName">生产指定的表</param>
+            <param name="logicName">逻辑名</param>
+            <param name="remark">逻辑备注</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_IServices_ClassFileByDBTalbe(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            功能描述:根据数据库表生产IServices层
+            </summary>
+            <param name="strPath">实体类存放路径</param>
+            <param name="strNameSpace">命名空间</param>
+            <param name="tableName">生产指定的表</param>
+            <param name="logicName">逻辑名</param>
+            <param name="remark">逻辑备注</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_Services_ClassFileByDBTalbe(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            功能描述:根据数据库表生产 Services 层
+            </summary>
+            <param name="strPath">实体类存放路径</param>
+            <param name="strNameSpace">命名空间</param>
+            <param name="tableName">生产指定的表</param>
+            <param name="logicName">逻辑名</param>
+            <param name="remark">逻辑备注</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_RequestViewModel_ClassFileByDBTalbe(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据数据库表生成RequestViewModel
+            </summary>
+            <param name="strPath">实体类存放路径</param>
+            <param name="strNameSpace">命名空间</param>
+            <param name="tableName">生产指定的表</param>
+            <param name="logicName">逻辑名</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_ResponseViewModel_ClassFileByDBTalbe(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据数据库表生成ResponseViewModel
+            </summary>
+            <param name="strPath"></param>
+            <param name="strNameSpace"></param>
+            <param name="tableName"></param>
+            <param name="logicName"></param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_Controller_ClassFileByDBTalbe(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            根据数据库表生成Controll
+            </summary>
+            <param name="strPath"></param>
+            <param name="strNameSpace"></param>
+            <param name="tableName"></param>
+            <param name="logicName"></param>
+            <param name="remark">逻辑备注</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Create_Controller_ClassFileFromRepositoryByDBTalbe(System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            根据数据库表生成Controll
+            </summary>
+            <param name="strPath"></param>
+            <param name="strNameSpace"></param>
+            <param name="tableName"></param>
+            <param name="logicName"></param>
+            <param name="remark">逻辑备注</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetEntityDB``1">
+            <summary>
+            功能描述:获取数据库处理对象
+            </summary>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetEntityDB``1(SqlSugar.SqlSugarClient)">
+            <summary>
+            功能描述:获取数据库处理对象
+            </summary>
+            <param name="db">db</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.CreateTableByEntity(System.Boolean,System.Type[])">
+            <summary>
+            功能描述:根据实体类生成数据库表
+            </summary>
+            <param name="blnBackupTable">是否备份表</param>
+            <param name="lstEntitys">指定的实体</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetDbContext">
+            <summary>
+            功能描述:获得一个DbContext
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.Init(System.String,SqlSugar.DbType)">
+            <summary>
+            功能描述:设置初始化参数
+            </summary>
+            <param name="strConnectionString">连接字符串</param>
+            <param name="enmDbType">数据库类型</param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetConnectionConfig(System.Boolean,System.Boolean)">
+            <summary>
+            功能描述:创建一个链接配置
+            </summary>
+            <param name="blnIsAutoCloseConnection">是否自动关闭连接</param>
+            <param name="blnIsShardSameThread">是否夸类事务</param>
+            <returns>ConnectionConfig</returns>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetCustomDB(SqlSugar.ConnectionConfig)">
+            <summary>
+            功能描述:获取一个自定义的DB
+            </summary>
+            <param name="config">config</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetCustomEntityDB``1(SqlSugar.SqlSugarClient)">
+            <summary>
+            功能描述:获取一个自定义的数据库处理对象
+            </summary>
+            <param name="sugarClient">sugarClient</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.DBContext.GetCustomEntityDB``1(SqlSugar.ConnectionConfig)">
+            <summary>
+            功能描述:获取一个自定义的数据库处理对象
+            </summary>
+            <param name="config">config</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.IPagedList.totalCount">
+            <summary>
+            总条数
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.IPagedList.hasNext">
+            <summary>
+            是否有下一页
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.IPagedList.hasPrev">
+            <summary>
+            是否有上一页
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.IPagedList.totalPage">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="T:JDNetCore.Entity.Sugar.PagedList`1">
+            <summary>
+            分页模型
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.PagedList`1.#ctor(SqlSugar.ISugarQueryable{`0},System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            sugar 分页器
+            </summary>
+            <param name="list"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="async"></param>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页组装
+            </summary>
+            <param name="list"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="totalCount"></param>
+        </member>
+        <member name="T:JDNetCore.Entity.Sugar.SugarEntityBase">
+            <summary>
+            sqlsugar实体父类 使用Oracle命名规范
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.SugarEntityBase.id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.SugarEntityBase.is_delete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.SugarEntityBase.state">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.SugarEntityBase.created_id">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.SugarEntityBase.created_on">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.SugarEntityBase.modifid_id">
+            <summary>
+            更新人
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Entity.Sugar.SugarEntityBase.modifid_on">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="M:JDNetCore.Entity.Sugar.SugarEntityBase.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

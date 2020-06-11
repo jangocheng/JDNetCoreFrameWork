@@ -62,3 +62,4 @@ C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Micro
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.TestConsole\bin\Debug\netcoreapp3.1\JDNetCore.Entity.xml

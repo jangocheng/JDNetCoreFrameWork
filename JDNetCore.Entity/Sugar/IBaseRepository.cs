@@ -9,7 +9,6 @@ using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JDNetCore.Entity.Sugar
@@ -93,7 +92,11 @@ namespace JDNetCore.Entity.Sugar
 
         Task<IEnumerable<T>> QueryAsync(string whereCondition, params string[] tableNames);
 
+        IEnumerable<T> Query(int topCount,  params string[] tableNames);
 
+        ISugarQueryable<T> ReQuery(int topCount, params string[] tableNames);
+
+        Task<IEnumerable<T>> QueryAsync(int topCount, params string[] tableNames);
 
         IEnumerable<T> Query(int topCount, string whereCondition, params string[] tableNames);
 

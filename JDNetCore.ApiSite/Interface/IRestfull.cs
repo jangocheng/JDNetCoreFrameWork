@@ -13,14 +13,15 @@ namespace JDNetCore.ApiSite.Interface
     /// Restfull风格的接口定式
     /// </summary>
     /// <typeparam name="DTO">传输模型</typeparam>
-    public interface IRestfull<DTO> where DTO : class
+    /// <typeparam name="CQM">查询模型</typeparam>
+    public interface IRestfull<DTO,CQM> where DTO : class where CQM :BQM
     {
         [HttpGet]
         DTO Get([FromQuery]string id);
         [HttpGet]
-        IEnumerable<DTO> Gets([FromQuery]BQM query);
+        IEnumerable<DTO> Gets([FromQuery]CQM query);
         [HttpPost]
-        long Post([FromBody]DTO data);
+        string Post([FromBody]DTO data);
         [HttpPut]
         string Put([FromQuery]string id, [FromBody]DTO data);
         [HttpDelete]
@@ -35,14 +36,15 @@ namespace JDNetCore.ApiSite.Interface
     /// Restfull风格的接口定式(Task)
     /// </summary>
     /// <typeparam name="DTO">传输模型</typeparam>
-    public interface IRestfullAsync<DTO> where DTO : class
+    /// <typeparam name="CQM">查询模型</typeparam>
+    public interface IRestfullAsync<DTO,CQM> where DTO : class where CQM : BQM
     {
-        Task<DTO> Get([FromQuery]string id);
-        Task<IEnumerable<DTO>> Gets([FromQuery]BQM query);
-        Task<long> Post([FromBody]DTO data);
-        Task<string> Put([FromQuery]string id, [FromBody]DTO data);
-        Task<string> Delete([FromQuery]string id);
-        Task<string> DeleteAll([FromQuery]string[] ids);
-        Task<string> Patch([FromQuery]string id, [FromBody] JsonPatchDocument<DTO> data);
+        Task<DTO> GetAsync([FromQuery]string id);
+        Task<IEnumerable<DTO>> GetsAsync([FromQuery]CQM query);
+        Task<string> PostAsync([FromBody]DTO data);
+        Task<string> PutAsync([FromQuery]string id, [FromBody]DTO data);
+        Task<string> DeleteAsync([FromQuery]string id);
+        Task<string> DeleteAllAsync([FromQuery]string[] ids);
+        Task<string> PatchAsync([FromQuery]string id, [FromBody] JsonPatchDocument<DTO> data);
     }
 }

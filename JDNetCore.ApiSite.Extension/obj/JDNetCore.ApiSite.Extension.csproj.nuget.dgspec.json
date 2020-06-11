@@ -80,6 +80,10 @@
               "target": "Package",
               "version": "[1.7.0, )"
             },
+            "Hangfire.HttpJob": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
             "IdentityServer4": {
               "target": "Package",
               "version": "[3.1.2, )"
@@ -99,6 +103,10 @@
             "Swashbuckle.AspNetCore.Filters": {
               "target": "Package",
               "version": "[5.1.1, )"
+            },
+            "TimeZoneConverter": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             }
           },
           "imports": [

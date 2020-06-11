@@ -38,13 +38,14 @@ namespace JDNetCore.ApiSite.Middleware
             services.AddSwaggerGen(c =>
             {
                 var version = "v1";
+                var url = Appsettings.app<string>("GlobalConfiguration:BaseUrl") + Appsettings.app<string>("Hangfire:StartUpPath");
                 c.SwaggerDoc(version, new OpenApiInfo
                 {
                     Version = version,
                     Title = $"{ApiName} 接口文档——Netcore 3.1",
                     Description = $"{ApiName} HTTP API " + version,
-                    Contact = new OpenApiContact { Name = ApiName, Email = "zy_try@live.cn", Url = new Uri("https://www.baidu.com") },
-                    //License = new OpenApiLicense { Name = ApiName + " 官方文档", Url = new Uri("https://www.baidu.com") }
+                    Contact = new OpenApiContact { Name = ApiName, Email = "zy_try@live.cn" },
+                    License = new OpenApiLicense { Name = "hangfire任务调度", Url = new Uri(url) }
                 });
                 c.OrderActionsBy(o => o.RelativePath);
 
@@ -61,8 +62,12 @@ namespace JDNetCore.ApiSite.Middleware
                     var xmlPath = Path.Combine(basePath, Appsettings.app<string>("Swagger:ApiDescXmlPath"));//这个就是刚刚配置的xml文件名
                     c.IncludeXmlComments(xmlPath, true);//默认的第二个参数是false，这个是controller的注释，记得修改
 
+                    c.IncludeXmlComments(Path.Combine(basePath, "JDNetCore.Entity.xml"));
+
                     var xmlModelPath = Path.Combine(basePath, Appsettings.app<string>("Swagger:ModelDescXmlPath"));//这个就是Model层的xml文件名
                     c.IncludeXmlComments(xmlModelPath);
+
+
                 }
                 catch (Exception ex)
                 {

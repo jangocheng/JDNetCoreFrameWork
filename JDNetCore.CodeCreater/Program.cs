@@ -1,11 +1,14 @@
 ﻿using JDNetCore.Common;
 using JDNetCore.Common.Crypto;
 using JDNetCore.Entity;
+using JDNetCore.Entity.Base;
 using JDNetCore.Entity.Sugar;
 using SqlSugar;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
+using System.Text;
 
 namespace JDNetCore.CodeCreater
 {
@@ -41,6 +44,7 @@ namespace JDNetCore.CodeCreater
             // 反射找到对应命名空间的下的表来创建数据库实体
             var types = Assembly.Load("JDNetCore.Entity").GetTypes();
             bool isAllSuccess = true;
+            var slnPath = Path.GetFullPath("../../../..");
             foreach (var item in types)
             {
                 if (item.Namespace == "JDNetCore.Entity")
@@ -50,12 +54,19 @@ namespace JDNetCore.CodeCreater
                     {
                         context.CreateTableByEntity(false, item);
                         //context.CreateTableByEntity(false, typeof(common_enums));
-                        Console.WriteLine($"更新成功");
+                        Console.WriteLine($"[{item.Name }]更新成功");
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"更新失败：{ex.Message}");
-                        isAllSuccess = false;
+                        Console.WriteLine($"[{item.Name }]更新失败：{ex.Message}");
+                    }
+
+                    if (item.GetCustomAttribute(typeof(RepositoryIgnoreAttribute)) == null)
+                    {
+                        //Console.WriteLine(underLineToPascal(item.Name));
+                        var logicName = Rename.UnderLineToPascal(item.Name);
+                        context.Create_IRepository_ClassFileByDBTalbe(slnPath + @"\JDNetCore.Repository.Interface", "JDNetCore.Repository.Interface", item.Name, logicName, "自动生成");
+                        context.Create_Repository_ClassFileByDBTalbe(slnPath + @"\JDNetCore.Repository", "JDNetCore.Repository", item.Name, logicName, "自动生成");
                     }
                 }
             }
@@ -109,22 +120,13 @@ namespace JDNetCore.CodeCreater
                     IsAutoCloseConnection = true,
                     ConnectionString = thisConnectionString
                 });
-                var com = /*DBContext.Context.Db*/newDb.Ado.SqlQuerySingle<int?>($"select 1 from sys.databases where name = '{context.Db.Ado.Connection.Database}';");
+                var com = newDb.Ado.SqlQuerySingle<int?>($"select 1 from sys.databases where name = '{context.Db.Ado.Connection.Database}';");
                 if (com == null)
                     return true;
             }
             else if (DBContext.DbType == DbType.Oracle)
             {
-                string thisConnectionString = connectionString.Replace(context.Db.Ado.Connection.Database, "master");
-                var newDb = new SqlSugarClient(new ConnectionConfig()
-                {
-                    DbType = DBContext.DbType,
-                    IsAutoCloseConnection = true,
-                    ConnectionString = thisConnectionString
-                });
-                var com = /*DBContext.Context.Db*/newDb.Ado.SqlQuerySingle<int?>($"select 1 from sys.databases where name = '{context.Db.Ado.Connection.Database}';");
-                if (com == null)
-                    return true;
+                return false;
             }
             return false;
         }
@@ -135,16 +137,16 @@ namespace JDNetCore.CodeCreater
         /// <param name="context"></param>
         static void InitializeData(DBContext context)
         {
-            var user = new program_user()
-            {
-                account = "admin",
-                headimage = "",
-                realname = "系统管理员",
-                password = MD5Helper.MD5Encrypt64("Ww123123"),
-                phone = "18888888888",
-                state = 1,
-            };
-            context.Db.Insertable(user).ExecuteCommand();
+            //var user = new program_user()
+            //{
+            //    account = "admin",
+            //    headimage = "",
+            //    realname = "系统管理员",
+            //    password = MD5Helper.MD5Encrypt64("Ww123123"),
+            //    phone = "18888888888",
+            //    state = 1,
+            //};
+            //context.Db.Insertable(user).ExecuteCommand();
         }
     }
 }

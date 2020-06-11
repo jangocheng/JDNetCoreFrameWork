@@ -42,7 +42,6 @@ namespace JDNetCore.Entity.Sugar
             return key;
         }
 
-
         public BaseRepository(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -91,7 +90,7 @@ namespace JDNetCore.Entity.Sugar
         private static int Exec(IInsertable<T> cmd, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -108,7 +107,7 @@ namespace JDNetCore.Entity.Sugar
         private static async Task<int> ExecAsync(IInsertable<T> cmd, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -129,7 +128,7 @@ namespace JDNetCore.Entity.Sugar
         public int Delete(string id, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -146,7 +145,7 @@ namespace JDNetCore.Entity.Sugar
         public async Task<int> DeleteAsync(string id, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -163,7 +162,7 @@ namespace JDNetCore.Entity.Sugar
         public int DeleteIn(string[] ids, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -180,7 +179,7 @@ namespace JDNetCore.Entity.Sugar
         public async Task<int> DeleteInAsync(string[] ids, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -197,7 +196,7 @@ namespace JDNetCore.Entity.Sugar
         public int DeleteWith(Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -214,7 +213,7 @@ namespace JDNetCore.Entity.Sugar
         public async Task<int> DeleteWithAsync(Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -235,7 +234,7 @@ namespace JDNetCore.Entity.Sugar
         public T Find(string id, params string[] tableNames)
         {
             T result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -253,7 +252,7 @@ namespace JDNetCore.Entity.Sugar
         public async Task<T> FindAsync(string id, params string[] tableNames)
         {
             T result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -271,7 +270,7 @@ namespace JDNetCore.Entity.Sugar
         public IEnumerable<T> FindIn(string[] ids, params string[] tableNames)
         {
             IEnumerable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -289,7 +288,7 @@ namespace JDNetCore.Entity.Sugar
         public async Task<IEnumerable<T>> FindInAsync(string[] ids, params string[] tableNames)
         {
             IEnumerable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -401,6 +400,12 @@ namespace JDNetCore.Entity.Sugar
             return result;
         }
 
+        public IEnumerable<T> Query(int topCount, params string[] tableNames)
+        {
+            var result = ReQuery(topCount, tableNames).ToArray();
+            return result;
+        }
+
         public IEnumerable<T> Query(int topCount, string whereCondition, params string[] tableNames)
         {
             var result = ReQuery(topCount, whereCondition, tableNames).ToArray();
@@ -471,6 +476,12 @@ namespace JDNetCore.Entity.Sugar
             return result;
         }
 
+        public async Task<IEnumerable<T>> QueryAsync(int topCount, params string[] tableNames)
+        {
+            var result = await ReQuery(topCount, tableNames).ToListAsync();
+            return result;
+        }
+
         public async Task<IEnumerable<T>> QueryAsync(int topCount, string whereCondition, params string[] tableNames)
         {
             var result = await ReQuery(topCount, whereCondition, tableNames).ToListAsync();
@@ -532,7 +543,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -551,7 +562,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(string whereCondition, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -570,7 +581,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(string whereCondition, string orderByFields, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -588,10 +599,29 @@ namespace JDNetCore.Entity.Sugar
             return result;
         }
 
+        public ISugarQueryable<T> ReQuery(int topCount, params string[] tableNames)
+        {
+            ISugarQueryable<T> result = null;
+            if (tableNames != null && tableNames.Length != 0 )
+            {
+                var list = new List<ISugarQueryable<T>>();
+                foreach (var table in tableNames)
+                {
+                    list.Add(_db.Queryable<T>().AS(table).Take(topCount));
+                }
+                result = _db.Union(list).Take(topCount);
+            }
+            else
+            {
+                result = _db.Queryable<T>().Take(topCount);
+            }
+            return result;
+        }
+
         public ISugarQueryable<T> ReQuery(int topCount, string whereCondition, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -610,7 +640,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(int topCount, string whereCondition, string orderByFields, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -632,7 +662,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -651,7 +681,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(int topCount, Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -670,7 +700,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(int topCount, Expression<Func<T, object>> orderByExpression, OrderByType type = OrderByType.Asc, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -689,7 +719,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(int topCount, Expression<Func<T, bool>> whereExpression, Expression<Func<T, object>> orderByExpression, OrderByType type = OrderByType.Asc, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -708,7 +738,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(Expression<Func<T, bool>> whereExpression, Expression<Func<T, object>> orderByExpression, OrderByType type = OrderByType.Asc, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -727,7 +757,7 @@ namespace JDNetCore.Entity.Sugar
         public ISugarQueryable<T> ReQuery(Expression<Func<T, object>> orderByExpression, OrderByType type = OrderByType.Asc, params string[] tableNames)
         {
             ISugarQueryable<T> result = null;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 var list = new List<ISugarQueryable<T>>();
                 foreach (var table in tableNames)
@@ -750,16 +780,16 @@ namespace JDNetCore.Entity.Sugar
         public int Update(T entity, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
-                    line += _db.Updateable<T>(entity).AS(table).ExecuteCommand();
+                    line += _db.Updateable<T>(entity).IgnoreColumns(o=>new { o.created_id,o.created_on }).AS(table).ExecuteCommand();
                 }
             }
             else
             {
-                line = _db.Updateable<T>(entity).ExecuteCommand();
+                line = _db.Updateable<T>(entity).IgnoreColumns(o => new { o.created_id, o.created_on }).ExecuteCommand();
             }
             return line;
         }
@@ -767,16 +797,16 @@ namespace JDNetCore.Entity.Sugar
         public async Task<int> UpdateAsync(T entity, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
-                    line += await _db.Updateable<T>(entity).AS(table).ExecuteCommandAsync();
+                    line += await _db.Updateable<T>(entity).IgnoreColumns(o => new { o.created_id, o.created_on }).AS(table).ExecuteCommandAsync();
                 }
             }
             else
             {
-                line = await _db.Updateable<T>(entity).ExecuteCommandAsync();
+                line = await _db.Updateable<T>(entity).IgnoreColumns(o => new { o.created_id, o.created_on }).ExecuteCommandAsync();
             }
             return line;
         }
@@ -784,16 +814,16 @@ namespace JDNetCore.Entity.Sugar
         public int UpdateRange(IEnumerable<T> entities, params string[] tableNames) 
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
-                    line += _db.Updateable<T>(entities).AS(table).ExecuteCommand();
+                    line += _db.Updateable<T>(entities).IgnoreColumns(o => new { o.created_id, o.created_on }).AS(table).ExecuteCommand();
                 }
             }
             else
             {
-                line = _db.Updateable<T>(entities).ExecuteCommand();
+                line = _db.Updateable<T>(entities).IgnoreColumns(o => new { o.created_id, o.created_on }).ExecuteCommand();
             }
             return line;
         }
@@ -801,16 +831,16 @@ namespace JDNetCore.Entity.Sugar
         public async Task<int> UpdateRangeAsync(IEnumerable<T> entities, params string[] tableNames) 
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
-                    line += await _db.Updateable<T>(entities).AS(table).ExecuteCommandAsync();
+                    line += await _db.Updateable<T>(entities).IgnoreColumns(o => new { o.created_id, o.created_on }).AS(table).ExecuteCommandAsync();
                 }
             }
             else
             {
-                line = await _db.Updateable<T>(entities).ExecuteCommandAsync();
+                line = await _db.Updateable<T>(entities).IgnoreColumns(o => new { o.created_id, o.created_on }).ExecuteCommandAsync();
             }
             return line;
         }
@@ -818,16 +848,16 @@ namespace JDNetCore.Entity.Sugar
         public int UpdateWith(T entity, Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
-                    line += _db.Updateable<T>(entity).AS(table).Where(whereExpression).ExecuteCommand();
+                    line += _db.Updateable<T>(entity).AS(table).IgnoreColumns(o => new { o.created_id, o.created_on }).Where(whereExpression).ExecuteCommand();
                 }
             }
             else
             {
-                line = _db.Updateable<T>(entity).Where(whereExpression).ExecuteCommand();
+                line = _db.Updateable<T>(entity).IgnoreColumns(o => new { o.created_id, o.created_on }).Where(whereExpression).ExecuteCommand();
             }
             return line;
         }
@@ -835,16 +865,16 @@ namespace JDNetCore.Entity.Sugar
         public async Task<int> UpdateWithAsync(T entity, Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
-                    line += await _db.Updateable<T>(entity).AS(table).Where(whereExpression).ExecuteCommandAsync();
+                    line += await _db.Updateable<T>(entity).AS(table).IgnoreColumns(o => new { o.created_id, o.created_on }).Where(whereExpression).ExecuteCommandAsync();
                 }
             }
             else
             {
-                line = await _db.Updateable<T>(entity).Where(whereExpression).ExecuteCommandAsync();
+                line = await _db.Updateable<T>(entity).IgnoreColumns(o => new { o.created_id, o.created_on }).Where(whereExpression).ExecuteCommandAsync();
             }
             return line;
         }
@@ -852,7 +882,7 @@ namespace JDNetCore.Entity.Sugar
         public int UpdateTable(Expression<Func<T, T>> columns, Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {
@@ -869,7 +899,7 @@ namespace JDNetCore.Entity.Sugar
         public async Task<int> UpdateTableAsync(Expression<Func<T, T>> columns, Expression<Func<T, bool>> whereExpression, params string[] tableNames)
         {
             var line = 0;
-            if (tableNames != null)
+            if (tableNames != null && tableNames.Length != 0 )
             {
                 foreach (var table in tableNames)
                 {

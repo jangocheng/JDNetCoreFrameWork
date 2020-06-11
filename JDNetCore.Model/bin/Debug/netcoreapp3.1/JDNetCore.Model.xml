@@ -4,6 +4,23 @@
         <name>JDNetCore.Model</name>
     </assembly>
     <members>
+        <member name="T:JDNetCore.Model.DTO.FriendlyException`1">
+            <summary>
+            模型验证异常
+            </summary>
+        </member>
+        <member name="M:JDNetCore.Model.DTO.FriendlyException`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="field">字段</param>
+            <param name="message">消息</param>
+        </member>
+        <member name="T:JDNetCore.Model.DTO.FriendlyException">
+            <summary>
+            模型验证异常 上级
+            </summary>
+        </member>
         <member name="T:JDNetCore.Model.DTO.Token">
             <summary>
             jwt接口返回的 token
@@ -112,6 +129,31 @@
         <member name="P:JDNetCore.Model.VO.In.BQM.user_id">
             <summary>
             用户id
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.tablename">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.fromService">
+            <summary>
+            是否从服务层开始注入
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.area">
+            <summary>
+            域, 默认api
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.restfulAsync">
+            <summary>
+            Restful是否异步
             </summary>
         </member>
     </members>

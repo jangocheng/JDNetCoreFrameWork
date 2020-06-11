@@ -14,6 +14,25 @@ using System.Xml.Serialization;
 
 namespace JDNetCore.Common
 {
+    public static class Rename
+    {
+        /// <summary>
+        /// 下划线命名转帕斯卡命名
+        /// </summary>
+        /// <param name="underLineWord"></param>
+        /// <returns></returns>
+        public static string UnderLineToPascal(string underLineWord)
+        {
+            //校验是否下划线命名
+            var words = underLineWord.Split('_');
+            StringBuilder sb = new StringBuilder();
+            foreach (var word in words)
+            {
+                sb.Append(word.Substring(0, 1).ToUpper() + word.Substring(1, word.Length - 1).ToLower());
+            }
+            return sb.ToString();
+        }
+    }
     public static class UtilConvert
     {
         /// <summary>

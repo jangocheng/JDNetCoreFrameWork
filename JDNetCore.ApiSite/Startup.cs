@@ -24,6 +24,23 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using JDNetCore.Entity.Sugar;
+using Hangfire;
+//using Hangfire.Oracle.Core;
+using Hangfire.Storage;
+using Hangfire.Dashboard;
+using JDNetCore.Common.Crypto;
+using JDNetCore.Service;
+using Hangfire.HttpJob;
+using Hangfire.Console;
+using TimeZoneConverter;
+using System.Data;
+using JDNetCore.ApiSite.Filter;
+using StackExchange.Redis;
+using Hangfire.Redis;
+using Hangfire.Tags.Redis;
+using Hangfire.SqlServer;
+using Hangfire.Tags.SqlServer;
 //using Ocelot.DependencyInjection;
 //using Ocelot.Middleware;
 //using Ocelot.Values;
@@ -40,30 +57,24 @@ namespace JDNetCore.ApiSite
         /// 
         /// </summary>
         /// <param name="configuration"></param>
+        /// <param name="env"></param>
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
-            //def
-            Configuration = configuration;
-            Environment = env;
+
         }
 
-        /// <summary>
-        /// 配置
-        /// </summary>
-        public IConfiguration Configuration { get; }
-        /// <summary>
-        /// 环境
-        /// </summary>
-        public IWebHostEnvironment Environment { get; }
+
+
 
         /// <summary>
         /// This method gets called by the runtime. Use this method to add services to the container.
         /// </summary>
         /// <param name="services"></param>
+        /// <param name="hangfire"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             //添加配置单例注入 不知道有毛用
-            services.AddSingleton(new Appsettings((builder)=> {
+            services.AddSingleton(new Appsettings((builder) => {
                 //builder.AddOcelot(null);
                 //builder.AddJsonFile("ocelot.json");
             }));
@@ -71,11 +82,49 @@ namespace JDNetCore.ApiSite
             services.AddSingleton(typeof(IApiDescriptionGroupCollectionProvider), typeof(SwaggerApiDescriptionGroupCollectionProvider));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<ICache, MemoryCacheExt>();
-            //添加过全局权限控制
-            services.AddControllers(options => options.Filters.Add(new AuthorizeFilter()));//
 
-            services.AddIdentityServerSetup(); 
+            services.AddSqlsugarSetup();
 
+
+
+            var useRedis = Appsettings.app<bool>("Hangfire:UseRedis");
+
+            if (useRedis)
+            {
+                var con = ConnectionMultiplexer.Connect(new ConfigurationOptions
+                {
+                    SyncTimeout = (int)TimeSpan.FromMinutes(10).TotalMilliseconds,
+                    EndPoints = { Appsettings.app<string>("Hangfire:EndPoint") },
+                    ConnectTimeout = (int)TimeSpan.FromMinutes(10).TotalMilliseconds,
+                    AsyncTimeout = (int)TimeSpan.FromMinutes(10).TotalMilliseconds,
+                    HighPrioritySocketThreads = true,
+                });
+                services.AddHangfireSetup(new RedisStorage(con), (hangfire) =>
+                {
+                    hangfire.UseTagsWithRedis(con);
+                });
+            }
+            else
+            {
+                var hangfireStorageType = Appsettings.app<int>("Hangfire:DBType");
+
+                var hangfireConnection = Appsettings.app<string>("Hangfire:Connection");
+
+                //判断
+
+                services.AddHangfireSetup(new SqlServerStorage(hangfireConnection), (hangfire) =>
+                {
+                    hangfire.UseTagsWithSql();
+                });
+            }
+
+            services.AddScoped<DBContext>();
+
+            //添加过滤器
+            services.AddFilterSetup();
+
+
+            services.AddIdentityServerSetup();
             //services.AddMvc();
             //负载均衡Api网关层 
 
@@ -95,7 +144,6 @@ namespace JDNetCore.ApiSite
             //Swagger 安装
             services.AddSwaggerSetup();
 
-            
 
         }
 
@@ -113,13 +161,35 @@ namespace JDNetCore.ApiSite
             return;
         }
 
+
+
         /// <summary>
         /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        /// <param name="provider"></param>
+        /// <param name="applicationLeftTime"></param>
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider, IHostApplicationLifetime applicationLeftTime)
         {
+            applicationLeftTime.ApplicationStarted.Register(() =>
+            {
+                //缓存初始化 之类的操作
+                Console.WriteLine("ApplicationStarted");
+            });
+
+            applicationLeftTime.ApplicationStopped.Register(() => 
+            {
+                //资源回收之类的操作
+                Console.WriteLine("ApplicationStopped");
+            });
+
+            applicationLeftTime.ApplicationStopping.Register(() => 
+            {
+                //日志buffer推送 之类的操作
+                Console.WriteLine("ApplicationStopping");
+            });
+
             //def
             if (env.IsDevelopment())
             {
@@ -128,8 +198,8 @@ namespace JDNetCore.ApiSite
 
                 //app.UseCors("default");
 
-                app.UseSwagger(c=> { 
-                    
+                app.UseSwagger(c => {
+
                 });
 
                 app.UseSwaggerUI(c =>
@@ -140,6 +210,10 @@ namespace JDNetCore.ApiSite
                     c.DocumentTitle = ApiName + "接口文档";
                 });
             }
+
+            app.UseHangfirePlugin((IAccountService)provider.GetService(typeof(IAccountService)),
+                (ICache)provider.GetService(typeof(ICache)));
+
             app.UseIdentityServer();
             //def
             app.UseHttpsRedirection();

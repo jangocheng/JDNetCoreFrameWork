@@ -16,5 +16,7 @@ namespace JDNetCore.Service.Interface
     public interface IAccountService
     {
         public Task<AccountResult> SignInAsync(string userId, string passWord);
+
+        public AccountResult SignIn(string userId, string passWord);
     }
 }

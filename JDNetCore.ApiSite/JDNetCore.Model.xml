@@ -114,5 +114,115 @@
             用户id
             </summary>
         </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.tablename">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.fromService">
+            <summary>
+            是否从服务层开始注入
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.area">
+            <summary>
+            域, 默认api
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.ControllerIniter.restfulAsync">
+            <summary>
+            Restful是否异步
+            </summary>
+        </member>
+        <member name="T:JDNetCore.Model.VO.In.CQM_Equipment">
+            <summary>
+            台套查询模型
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_Equipment._WORKSHOPNO">
+            <summary>
+            车间编号
+            </summary>
+        </member>
+        <member name="T:JDNetCore.Model.VO.In.CQM_ImpMission">
+            <summary>
+            关键缺项查询模型
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_ImpMission._SETSNO">
+            <summary>
+            台套号
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_organdata.部门名称">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="T:JDNetCore.Model.VO.In.CQM_SporderGetByMonth">
+            <summary>
+            急件订单按月查询
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_SporderGetByMonth._FACILITY">
+            <summary>
+            分厂编号
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_SporderGetByMonth._YEAR">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_SporderGetByMonth._MONTH">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="T:JDNetCore.Model.VO.In.CQM_Task">
+            <summary>
+            工作量,任务节点 查询模型
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_Task._SETSNO">
+            <summary>
+            台套号
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.In.CQM_userdata.工号">
+            <summary>
+            工号
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Sporder_GetByMonth_Result.JJWIPORDERCOMPLETEQUANTITY">
+            <summary>
+            急件完成数
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Sporder_GetByMonth_Result.ALLJJWIPORDERQUANTITY">
+            <summary>
+            急件总单数
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Sporder_GetByMonth_Result.PROJECTTYPE">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Sporder_GetByMonth_Result_PROJECTTYPE.PROJECTUSAGE">
+            <summary>
+            项目用途
+            </summary>
+        </member>
+        <member name="P:JDNetCore.Model.VO.Out.Sporder_GetByMonth_Result_PROJECTTYPE.PROJECTJJUSAGECOUNT">
+            <summary>
+            数量
+            </summary>
+        </member>
     </members>
 </doc>

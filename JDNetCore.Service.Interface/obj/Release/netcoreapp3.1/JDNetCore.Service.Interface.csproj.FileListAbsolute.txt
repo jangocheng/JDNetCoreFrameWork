@@ -1,0 +1,16 @@
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Service.Interface.deps.json
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Service.Interface.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Service.Interface.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Common.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Entity.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Model.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Model.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Common.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Entity.pdb
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\bin\Release\netcoreapp3.1\JDNetCore.Entity.xml
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\obj\Release\netcoreapp3.1\JDNetCore.Service.Interface.csprojAssemblyReference.cache
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\obj\Release\netcoreapp3.1\JDNetCore.Service.Interface.AssemblyInfoInputs.cache
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\obj\Release\netcoreapp3.1\JDNetCore.Service.Interface.AssemblyInfo.cs
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\obj\Release\netcoreapp3.1\JDNetCore.Service.Interface.csproj.CopyComplete
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\obj\Release\netcoreapp3.1\JDNetCore.Service.Interface.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.Service.Interface\obj\Release\netcoreapp3.1\JDNetCore.Service.Interface.pdb

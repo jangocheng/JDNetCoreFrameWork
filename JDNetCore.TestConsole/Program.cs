@@ -25,7 +25,7 @@ namespace JDNetCore.TestConsole
                 if (loop == 0) break;
                 Parallel.For(0, loop, (i) =>
                 {
-                    if (!temp.TryAdd(new program_user().id, false)) Console.WriteLine("插入失败");
+                    if (!temp.TryAdd(new Test().id, false)) Console.WriteLine("插入失败");
                 });
                 Console.WriteLine("ConcurrentDictionary 插入" + loop + "次成功");
             }

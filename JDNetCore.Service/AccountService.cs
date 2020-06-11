@@ -16,20 +16,31 @@ namespace JDNetCore.Service
 {
     public class AccountService : IAccountService
     {
+        public AccountResult SignIn(string userId, string passWord)
+        {
+            return TestSignIn(userId, passWord);
+        }
+
         public async Task<AccountResult> SignInAsync(string userId, string passWord)
+        {
+            return TestSignIn(userId, passWord);
+        }
+
+        private static AccountResult TestSignIn(string userId, string passWord)
         {
             var accountResult = new AccountResult();
             if (userId == "admin" && passWord == "Ww123123")
             {
                 accountResult.state = SSOState.success;
-                accountResult.user = new SSOUser() { 
-                    birth = new DateTime(1991,1,17),
-                    desc = "阿尼煤绅士",
+                accountResult.user = new SSOUser()
+                {
+                    birth = new DateTime(1991, 1, 17),
+                    desc = "超级管理员",
                     id = long.MaxValue.ToString(),
-                    nickname = "研小艾",
+                    nickname = "管理员",
                     sex = true,
-                    tel = "18896560208",
-                    username = "andy",
+                    tel = "18888888888",
+                    username = "admin",
                 };
             }
             else

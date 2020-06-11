@@ -62,3 +62,4 @@ C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Micro
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\CodeSP\JDNetCoreFrameWork\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1\JDNetCore.Entity.xml

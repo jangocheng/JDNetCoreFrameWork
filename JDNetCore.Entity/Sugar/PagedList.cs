@@ -7,7 +7,9 @@
 
 using SqlSugar;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,18 +34,15 @@ namespace JDNetCore.Entity.Sugar
             this.pageSize = pageSize;
             if (!async)
             {
-                RefAsync<int> totalCount = 0;
-                base.AddRange(list.ToPageListAsync(pageIndex, pageSize, totalCount).Result);
-                this.totalCount = totalCount.Value;
+                int totalCount = 0;
+                base.AddRange(list.ToPageList(pageIndex, pageSize,ref totalCount));
+                this.totalCount = totalCount;
             }
             else
             {
                 RefAsync<int> totalCount = 0;
-                list.ToPageListAsync(pageIndex, pageSize, totalCount).ContinueWith(o =>
-                {
-                    base.AddRange(o.Result);
-                    this.totalCount = totalCount.Value;
-                });
+                base.AddRange(list.ToPageListAsync(pageIndex, pageSize, totalCount).Result);
+                this.totalCount = totalCount.Value;
             }
         }
 
@@ -71,6 +70,8 @@ namespace JDNetCore.Entity.Sugar
         public bool hasPrev => this.pageIndex > 1;
 
         public int totalPage => this.totalCount / this.pageSize + (this.totalCount % this.pageSize > 0 ? 1 : 0);
+
+        public IEnumerable data => this;
     }
 
     public static class PagedListExt

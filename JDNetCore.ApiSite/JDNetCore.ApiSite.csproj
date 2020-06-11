@@ -5,6 +5,7 @@
     <UserSecretsId>0fa224f3-cf24-46a9-a87e-302897c95382</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>..\JDNetCore.Api</DockerfileContext>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,6 +24,10 @@
     <PackageReference Include="App.Metrics.Extensions.Hosting" Version="3.2.0" />
     <PackageReference Include="App.Metrics.Reporting.InfluxDB" Version="3.2.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.11" />
+    <PackageReference Include="Hangfire.HttpJob" Version="3.2.1" />
+    <PackageReference Include="Hangfire.Tags.Redis" Version="1.2.2" />
+    <PackageReference Include="Hangfire.Tags.SqlServer" Version="1.6.2" />
     <PackageReference Include="IdentityServer4" Version="3.1.2" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.0" />
@@ -49,11 +54,31 @@
     </Content>
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties appmetrics_1development_1json__JsonSchema="http://json.schemastore.org/ansible-stable-2.9" /></VisualStudio></ProjectExtensions>
+  <ItemGroup>
+    <Folder Include="Admin\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appmetrics_1development_1json__JsonSchema="http://json.schemastore.org/ansible-stable-2.9" appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy $(ProjectDir)*.json $(ProjectDir)..\JDNetCore.CodeCreater\bin\Debug\netcoreapp3.1" />
   </Target>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
 
 
 </Project>
